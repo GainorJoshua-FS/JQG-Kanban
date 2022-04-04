@@ -1,0 +1,62 @@
+#kanban{
+    @include screenSize(desktop){
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}
+
+.tasklist{
+
+    //color: $color-dark;
+    //background: rgb(75, 75, 75);
+
+    @extend %card;
+
+    @include screenSize(desktop){
+        width: calc(100%/3 - 4rem);
+    }
+
+    &__title{
+        @extend %title;
+        border-bottom: 0.1rem solid darkgray;
+    }
+
+    ul{
+        margin-top: 1.5rem;
+        font-size: 2rem;
+
+        .task{
+            padding: 2rem;
+            //background: rgb(221, 221, 221);
+            margin-bottom: 1rem;
+        
+            &__title{
+                @extend %titleFont;
+                border-bottom: 0.1rem dotted rgb(119, 119, 119);
+                margin-bottom: 1rem;
+                color: $color-dark;
+            }
+        
+            &__desc{
+                @extend %descriptionFont;
+                color: rgb(36, 36, 36);
+                font-size: 1.6rem;
+            }
+
+            &__date{
+                @extend %descriptionFont;
+                color: rgb(36, 36, 36);
+                font-size: 1.6rem;
+                text-align: right;
+                margin-top: 0.6rem;
+                border-top: 0.2rem solid rgb(36, 36, 36);
+            }
+        }
+    }
+}
+
+.addbtn{
+    @include button(rgb(100, 167, 0));
+    // color: $color-light;
+}

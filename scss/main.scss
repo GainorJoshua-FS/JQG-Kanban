@@ -1,0 +1,25 @@
+// main.scss
+@import "fonts.scss";
+@import "reset.scss";
+@import "utilities.scss";
+@import "themes.scss";
+
+body {
+    min-height: 100vh;
+    font: 1.5rem/1.4 'Open Sans', Helvetica, Arial, sans-serif;
+    //background: rgb(34,34,34); 
+    //@include backgroundGradient(rgba(34,34,34,1), rgba(0, 0, 0, 0.75));
+    //color: $color-light;
+}
+
+main{
+    @extend %center;
+}
+
+@import "form.scss";
+@import "modal.scss";
+@import "header.scss";
+@import "tasks.scss";
+
+
+

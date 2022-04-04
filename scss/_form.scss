@@ -1,0 +1,67 @@
+#newtask{
+    @extend %card;
+    color: $color-dark;
+    text-align: center;
+    background: rgb(77, 84, 77);
+
+    h2{
+        @extend %title;
+        color: $color-light;
+        width: 100%;
+    }
+
+    
+    .titleWrapper, .descWrapper, .dateWrapper{
+        width: 100%;
+        font-size: 2rem;
+        margin: 1rem 0 1rem 0;
+        color: $color-light;
+        text-align: left;
+        
+        input{
+            @extend %titleFont;
+            padding-left: 0.5rem;
+            width: 100%;
+            height: 3rem;
+            font-size: 2.5rem;
+            color: $color-dark
+        }
+        
+        textarea{
+            @extend %descriptionFont;
+            color: $color-dark;
+            width: 100%;
+        }
+    }
+
+    
+    .buttons{
+        width: 100%;
+        text-align: center;
+        display: inline;
+    }
+
+    &__titleerror, &__descerror, &__dateerror{
+        color: rgb(255, 142, 142);
+    }
+
+    // &__titleinput, &__descriptioninput{
+    //     color: $color-dark;
+    // }
+
+    &__cancel{
+        @include button(rgb(216, 74, 74));
+        display: inline-block;
+        margin-right: 0.5rem;
+        padding: 1rem 3rem 1rem 3rem;
+        color: $color-light;
+    }
+
+    &__submit{
+        @include button(rgb(75, 160, 75));
+        display: inline-block;
+        margin-right: 0.5rem;
+        padding: 1rem 3rem 1rem 3rem;
+        color: $color-light;
+    }
+}

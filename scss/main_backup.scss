@@ -1,0 +1,144 @@
+// main.scss
+/* CSS Reset */
+body, header, nav, section, div, article, ul, li, h1, h2, h3, h4, p, a, footer, form, label, input, textarea, button, img, dd, dt, dl
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 100%;
+    text-decoration: none;
+    font-weight: normal;
+    color: inherit;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+} 
+
+/*Default text to 10px*/
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    padding: 0 2rem;
+    font: 1.5rem/1.4 'Open Sans', Helvetica, Arial, sans-serif;
+    background: rgb(34,34,34); 
+    background: linear-gradient(180deg, rgba(34,34,34,1) 0%, rgba(0, 0, 0, 0.5) 100%);  
+    color: rgb(255, 255, 255);
+}
+
+/*Mixins, Placeholders, and Variables*/
+
+$spacing: 2rem;
+
+%card{
+    background: white;
+    border: 0.1rem solid black;
+    padding: 1rem;
+    margin: $spacing;
+}
+
+@mixin screenSize($size){
+    @if $size == mobile{
+        @media (min-width: 300px){@content;}
+    }
+    @else if $size == desktop{
+        @media (min-width: 800px){@content;}
+    }
+}
+
+@mixin button($color, $hovercolor){
+    padding: 0.1rem;
+    background: $color;
+    color: black;
+    font-size: 1.6rem;
+    &:hover {
+        border: 0.2rem solid $hovercolor;
+        cursor: pointer;
+    }
+}
+
+/*====================================================================*/
+
+header{
+    h1{
+        max-width: 120rem;
+        margin: 0 auto;
+    }
+}
+
+main{
+    max-width: 130rem;
+    margin: 0 auto;
+    display: flex;
+    // direction: column; wrap: nowrap;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    @include screenSize(mobile){
+        width: 90%;
+    }
+
+    @include screenSize(desktop){
+        flex-flow: row wrap;
+    }
+}
+
+/*====================================================================*/
+header{
+    background: white;
+    text-align: center;
+    padding: $spacing;
+    color: black;
+    font-size: 5rem;
+    font-weight: 800;
+    margin: $spacing; 
+}
+
+.task{
+
+    @extend %card;
+
+    @include screenSize(desktop){
+        width: calc(100%/3 - 4rem);
+    }
+
+    
+    // @extend %card;
+
+    &__title{
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: black;
+        text-align: center;
+        border-bottom: 0.1rem solid darkgray;
+    }
+
+    &__list{
+        color: black;
+        padding: 0.5rem;
+        font-size: 2rem;
+
+        li{
+            padding-top: 0.5rem;
+            border-bottom: 0.1rem dotted lightgray;
+            background: rgb(221, 221, 221);
+            margin-bottom: 0.5rem;
+
+            p{
+                font-size: 1.6rem;
+                border-top: 0.2rem dotted black;
+            }
+        }
+    }
+}
+
+.addbtn{
+    @include button(greenyellow, darkgreen);
+}
+
+
+.delbtn{
+    @include button(red, darkred);
+}

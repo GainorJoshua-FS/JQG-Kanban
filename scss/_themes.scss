@@ -1,0 +1,68 @@
+//Darkmode======================
+.dark{
+    @include backgroundGradient(rgba(34,34,34,1), rgba(0, 0, 0, 0.75));
+    color: $color-light;
+    .tasklist{
+        color: $color-dark;
+        background: rgb(75, 75, 75);
+    }
+    .tasklist__title{
+        color: $color-light;
+    }
+    .task{
+        background: rgb(221, 221, 221);
+    }
+    header{
+        background: rgba(34,34,34,1);
+        color: $color-light;
+    }
+    #changetheme{
+        @include button(rgb(57, 57, 57));
+        animation: darkglow 2s ease-in-out infinite alternate-reverse;
+        color: $color-light;
+        margin-top: 20px;
+    }
+
+    .addbtn{
+        color: $color-light;
+    }
+
+    .delbtn{
+        color: $color-light;
+    }
+}
+
+//Lightmode======================
+
+.light{
+    @include backgroundGradient(rgb(179, 179, 179), rgba(255, 255, 255, 0.75));
+    color: $color-dark;
+    .tasklist{
+        color: $color-dark;
+        background: rgb(218, 218, 218)
+    }
+    .tasklist__title{
+        color: $color-dark;
+    }
+    .task{
+        background: rgb(150, 150, 150);
+    }
+    header{
+        background: rgb(170, 170, 170);
+        color: $color-dark;
+    }
+    #changetheme{
+        @include button(rgb(216, 216, 216));
+        animation: lightglow 2s ease-in-out infinite alternate-reverse;
+        color: $color-dark;
+        margin-top: 20px;
+    }
+
+    .addbtn{
+        color: $color-dark;
+    }
+
+    .delbtn{
+        color: $color-dark;
+    }
+}
